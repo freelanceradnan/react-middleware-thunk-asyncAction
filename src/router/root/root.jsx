@@ -14,6 +14,9 @@ export default function Root() {
             <li>
               <Link to={`/details`}  className="links">details</Link>
             </li>
+             <li>
+              <Link to={`/postdetails`}  className="links">details</Link>
+            </li>
           </ul>
         </nav>
 
