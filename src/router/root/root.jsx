@@ -12,7 +12,7 @@ export default function Root() {
               <Link to={`/posts`} className="links">posts</Link>
             </li>
             <li>
-              <Link to={`/details`}  className="links">details</Link>
+              <Link to={`/userlist`}  className="userList">userList</Link>
             </li>
              <li>
               <Link to={`/postdetails`}  className="links">details</Link>

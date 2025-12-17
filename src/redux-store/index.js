@@ -5,9 +5,11 @@ import { ourMiddleWare } from '../middleware/OurMiddleWare';
 import {postReducer}  from '../reducers/Posts';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { userReducer } from '../reducers/UserReducer';
 
 const rootReducer=combineReducers({
     counter:CounterApp,
-    post:postReducer
+    post:postReducer,
+    user:userReducer
 })
 export const store=createStore(rootReducer,composeWithDevTools(applyMiddleware(ourMiddleWare)))
