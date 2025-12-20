@@ -1,17 +1,17 @@
 export const ourMiddleWare=(store)=>(next)=>async(action)=>{
 //  console.log(JSON.stringify(store.getState()),"store State")
 //  console.log(action,"action")
- if(action==='fake-post-dispatch'){
-    fetchPost(store.dispatch)
+ if(typeof action==='function'){
+    action(store.dispatch)
     return
  }
- if(action=='fake-user-dispatch'){
-    fetchUserPost(store.dispatch)
+ if(typeof action==='function'){
+    action(store.dispatch)
     return
  }
 next(action)
 }
-const fetchPost=async(dispatch)=>{
+export const fetchPost=async(dispatch)=>{
     dispatch({type:"post/fetchStarted"})
     try {
 const res=await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
@@ -22,7 +22,7 @@ const res=await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
         store.dispatch({type:"post/fetchFailed",payload:error.message})
     }
 }
-const fetchUserPost=async(dispatch)=>{
+export const fetchUserPost=async(dispatch)=>{
     dispatch({type:"user/fetchStarted"});
     try {
         const res=await fetch('https://jsonplaceholder.typicode.com/users?_limit=5')

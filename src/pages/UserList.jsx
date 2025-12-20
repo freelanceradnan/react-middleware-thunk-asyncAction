@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchPost } from '../middleware/OurMiddleWare';
 
 export const UserList = () => {
     const {isLoading,users,errorMessage}=useSelector((storeState)=>storeState.user)
     const dispatch=useDispatch()
     useEffect(()=>{
-    dispatch('fake-user-dispatch')
+    dispatch(fetchPost)
     },[])
     return (
         <div>
